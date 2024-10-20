@@ -68,7 +68,7 @@ const userList = [
 const MultiKanbanBoard: React.FC = () => {
   const [boardStates, setBoardStates] = useState<BoardState>({});
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentBoard, setCurrentBoard] = useState("");
+  const [currentBoard, setCurrentBoard] = useState(boardNames[0]);
   const [editingTask, setEditingTask] = useState<Task | null>(null);
   const [newTask, setNewTask] = useState<Task>({
     id: "",
@@ -319,16 +319,6 @@ const MultiKanbanBoard: React.FC = () => {
     <div className="h-screen flex flex-col bg-white p-4">
       {/* Header */}
       <div className="mb-4 flex justify-between items-center">
-        <select
-          className="p-2 border rounded"
-          onChange={(e) => setCurrentBoard(e.target.value)}
-          value={currentBoard}
-        >
-          <option value="">Choose Board</option>
-          {boardNames.map((name) => (
-            <option key={name} value={name}>{name}</option>
-          ))}
-        </select>
         <div className="flex items-center">
           <button
             onClick={() => setIsFilterVisible(!isFilterVisible)}
