@@ -561,33 +561,35 @@ const MultiKanbanBoard: React.FC = () => {
                     }}
                   />
                 </div>
-                <div className="mt-4">
-                  <h4 className="font-bold mb-2">Comments</h4>
-                  <div className="max-h-40 overflow-y-auto mb-2">
-                    {newTask.comments && newTask.comments.map((comment, index) => (
-                      <div key={index} className="mb-2 p-2 bg-gray-100 rounded">
-                        <p className="text-sm text-gray-600">{format(new Date(comment.timestamp), "PPpp")}</p>
-                        <p>{comment.text}</p>
-                        <p className="text-sm text-gray-600">By: {comment.user}</p>
-                      </div>
-                    ))}
+                {editingTask && (
+                  <div className="mt-4">
+                    <h4 className="font-bold mb-2">Comments</h4>
+                    <div className="max-h-40 overflow-y-auto mb-2">
+                      {newTask.comments && newTask.comments.map((comment, index) => (
+                        <div key={index} className="mb-2 p-2 bg-gray-100 rounded">
+                          <p className="text-sm text-gray-600">{format(new Date(comment.timestamp), "PPpp")}</p>
+                          <p>{comment.text}</p>
+                          <p className="text-sm text-gray-600">By: {comment.user}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="flex">
+                      <input
+                        type="text"
+                        value={newComment}
+                        onChange={(e) => setNewComment(e.target.value)}
+                        placeholder="Add a comment"
+                        className="flex-grow p-2 border rounded-l"
+                      />
+                      <button
+                        onClick={addComment}
+                        className="bg-purple-100 text-purple-700 p-2 rounded-r"
+                      >
+                        Add
+                      </button>
+                    </div>
                   </div>
-                  <div className="flex">
-                    <input
-                      type="text"
-                      value={newComment}
-                      onChange={(e) => setNewComment(e.target.value)}
-                      placeholder="Add a comment"
-                      className="flex-grow p-2 border rounded-l"
-                    />
-                    <button
-                      onClick={addComment}
-                      className="bg-purple-100 text-purple-700 p-2 rounded-r"
-                    >
-                      Add
-                    </button>
-                  </div>
-                </div>
+                )}
               </div>
             )}
             {activeTab === "activity" && editingTask && (
