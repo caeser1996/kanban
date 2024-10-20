@@ -1,4 +1,4 @@
-import MultiKanbanBoard from './components/MultiKanbanBoard';
+import MultiKanbanBoard from './components/MultiKanbanBoardnewQuilNotesComments';
 
 function App() {
   return (
