@@ -1,4 +1,4 @@
-import MultiKanbanBoard from './components/MultiKanbanBoardnewQuilNotesComments';
+import MultiKanbanBoard from './components/MultiKanbanBoardnewQuilNotesCommentsSIngelStore';
 
 function App() {
   return (
