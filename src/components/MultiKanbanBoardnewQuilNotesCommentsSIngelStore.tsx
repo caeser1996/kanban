@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import './MultiKanbanBoardGenerated.css';
 
 const stageConfig = [
   { id: "pending", title: "Pending" },
